@@ -533,20 +533,48 @@ async function hero_books_listeners(){
 //function for keeping track of the arrangemnt of the hero books 
 
 async function hero_books_arrangement(){
+
+    
     console.log ("\n","\n","FUNCTION: hero_books_arrangement", "\n", "\n");
     //array for book arrangement ids
     let hero_books =[];
 
     // update current arrangement of hero books
+    let book_0 =0;
+    let book_1 =0;
+    let book_2 =0;
+    let book_3 =0;
+    let book_4 =0;
+    let book_5 =0;
+    let book_6 =0;
 
-   
-    let book_0 = document.getElementsByClassName("hero_ele_0")[0].id.match(/\d+/g)[0];
-    let book_1 = document.getElementsByClassName("hero_ele_1")[0].id.match(/\d+/g)[0];
-    let book_2 = document.getElementsByClassName("hero_ele_2")[0].id.match(/\d+/g)[0];
-    let book_3 = document.getElementsByClassName("hero_ele_3")[0].id.match(/\d+/g)[0];
-    let book_4 = document.getElementsByClassName("hero_ele_4")[0].id.match(/\d+/g)[0];
-    let book_5 = document.getElementsByClassName("hero_ele_5")[0].id.match(/\d+/g)[0];
-    let book_6 = document.getElementsByClassName("hero_ele_6")[0].id.match(/\d+/g)[0];
+    let hero_eles = document.getElementsByClassName("hero_ele");
+
+    for(let i=0; i< hero_eles.length; i++){
+        switch(i){
+            case 0:
+            book_0 = document.getElementsByClassName("hero_ele_0")[0].id.match(/\d+/g)[0];
+            break;
+            case 1:
+            book_1 = document.getElementsByClassName("hero_ele_1")[0].id.match(/\d+/g)[0];
+            break;
+            case 2:
+            book_2 = document.getElementsByClassName("hero_ele_2")[0].id.match(/\d+/g)[0];
+            break;
+            case 3:
+            book_3 = document.getElementsByClassName("hero_ele_3")[0].id.match(/\d+/g)[0];
+            break;
+            case 4:
+            book_4 = document.getElementsByClassName("hero_ele_4")[0].id.match(/\d+/g)[0];
+            break;
+            case 5:
+            book_5 = document.getElementsByClassName("hero_ele_5")[0].id.match(/\d+/g)[0];
+            break;
+            case 6:
+            book_6 = document.getElementsByClassName("hero_ele_6")[0].id.match(/\d+/g)[0];
+            break;
+        };
+    };
 
     //array for book arrangement ids
     hero_books = [book_0,book_1,book_2,book_3,book_4,book_5,book_6];
