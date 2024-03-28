@@ -1,0 +1,279 @@
+<%- include('partials/header.ejs') %>
+
+
+<main id="hero">
+
+    <!-- search books container -->
+    <div class="book_search_box outside_click_track search_dropdown_hide">
+        <!-- search books form-->
+        <div class="book_search_form">
+            <input type="text" name="search" id="search_input" placeholder="Search for a new book" autocomplete="off">
+            <!-- search results dropdown -->
+            <div class="search_dropdown ">
+                <ul class="search_list">
+                </ul>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <!-- new book container-->
+    <div class="upsert_book_container upsert_book_container_hide outside_click_track" id="new_book_container">
+        <div class="upsert_book_stable_container">
+            <!-- selected book info-->
+            <div class="upsert_book_info_container" id="new_book_info"></div>
+            <!-- add new book form -->
+            <form class="upsert_book_form" id="new_book_form" action="/new" method="post">
+                <p class="type_large">Add Book</p>
+
+                <!-- element to store the new book id -->
+                <textarea name="new_book_title" id="book_title_value" class="hidden_book_info"></textarea>
+                <!-- element to store the new book id -->
+                <textarea name="new_book_author" id="book_author_value" class="hidden_book_info"></textarea>
+                <!-- element to store the new book id -->
+                <textarea name="new_key_value" id="book_key_value" class="hidden_book_info"></textarea>
+
+                <!-- input for book category-->
+                <div class="category_input upsert_book_form_input">
+                    <p class="input_title">Completion of Book (Required)</p>
+                    <input type="radio" name="new_book_categ" class="book_categ_button type_med" id="new_completed" value="completed" required>
+                        <label for="new_completed">completed</label>
+                    <input type="radio" name="new_book_categ" class="book_categ_button type_med" id="new_current" value="current">
+                        <label for="new_current">current</label>
+                    <input type="radio" name="new_book_categ" class="book_categ_button type_med" id="new_future" value="future" checked>
+                        <label for="new_future">future</label>
+                </div>
+                
+                    
+                <!-- input for rating -->
+                <div class="rating_input upsert_book_form_input">
+                    <p class="input_title">Rating of Book</p>
+                    <input type="radio" name="new_rating" class="rating_button" id="new_rate_1" value="1">
+                        <label class="radio_stars" for="new_rate_1">★</label>
+                    <input type="radio" name="new_rating" class="rating_button" id="new_rate_2" value="2">
+                        <label class="radio_stars" for="new_rate_2">★</label>
+                    <input type="radio" name="new_rating" class="rating_button" id="new_rate_3" value="3">
+                        <label class="radio_stars" for="new_rate_3">★</label>
+                    <input type="radio" name="new_rating" class="rating_button" id="new_rate_4" value="4">
+                        <label class="radio_stars" for="new_rate_4">★</label>    
+                    <input type="radio" name="new_rating" class="rating_button" id="new_rate_5" value="5">
+                        <label class="radio_stars" for="new_rate_5">★</label>
+                </div>
+                
+                <!-- input for date completed-->        
+                <div class="date_input upsert_book_form_input">
+                    <p class="input_title">Date Finished Book</p>
+                    <input type="date" name="new_date" id="new_date" class="type_med">
+                </div>
+
+                <!-- input for notes for book-->
+                <div class="notes_input upsert_book_form_input">
+                    <p class="input_title">Notes on Book</p>
+                    <textarea name="new_book_notes" class="upsert_book_notes type_body" placeholder="Notes on Book"></textarea>
+                </div>
+
+                <!-- submit button -->
+                <button class="upsert_btn type_med" type="submit"> Add </button>
+
+            </form>  
+
+            <!-- close button-->
+            <button class="upsert_btn type_med" id="new_book_close" type="button" formnovalidate>Close</button>
+        </div>
+    </div>
+
+
+    <!-- edit book container-->
+    <div class="upsert_book_container upsert_book_container_hide outside_click_track" id="edit_book_container">
+        <div class="upsert_book_stable_container">
+            <!-- selected book info-->
+            <div class="upsert_book_info_container" id="edit_book_info"></div>
+            <!-- add new book form -->
+            <form class="upsert_book_form" id="edit_book_form" action="/edit" method="post">
+                <p class="type_large">Edit Book</p>
+
+                <!-- element to store the book id -->
+                <textarea name="edit_book_title" id="edit_book_title_value" class="hidden_book_info"></textarea>
+                <!-- element to store the book id -->
+                <textarea name="edit_book_author" id="edit_book_author_value" class="hidden_book_info"></textarea>
+                <!-- element to store the book id -->
+                <textarea name="edit_key_value" id="edit_book_key_value" class="hidden_book_info"></textarea>
+
+                <!-- input for book category-->
+                <div class="category_input upsert_book_form_input">
+                    <p class="input_title">Completion of Book (Required)</p>
+                    <input type="radio" name="edit_book_categ" class="book_categ_button" id="edit_completed" value="completed" required>
+                        <label for="edit_completed" class="type_med">completed</label>
+                    <input type="radio" name="edit_book_categ" class="book_categ_button" id="edit_current" value="current">
+                        <label for="edit_current"  class="type_med">current</label>
+                    <input type="radio" name="edit_book_categ" class="book_categ_button" id="edit_future" value="future">
+                        <label for="edit_future"  class="type_med">future</label>
+                </div>
+                    
+                <!-- input for rating -->
+                <div class="rating_input upsert_book_form_input">
+                    <p class="input_title">Rating of Book</p>
+                    <input type="radio" name="edit_rating" class="rating_button" id="edit_rate_1" value="1">
+                        <label class="radio_stars" for="edit_rate_1">★</label>
+                    <input type="radio" name="edit_rating" class="rating_button" id="edit_rate_2" value="2">
+                        <label class="radio_stars" for="edit_rate_2">★</label>
+                    <input type="radio" name="edit_rating" class="rating_button" id="edit_rate_3" value="3">
+                        <label class="radio_stars" for="edit_rate_3">★</label>
+                    <input type="radio" name="edit_rating" class="rating_button" id="edit_rate_4" value="4">
+                        <label class="radio_stars" for="edit_rate_4">★</label>    
+                    <input type="radio" name="edit_rating" class="rating_button" id="edit_rate_5" value="5">
+                        <label class="radio_stars" for="edit_rate_5">★</label>
+                </div>
+                
+                <!-- input for date completed-->        
+                <div class="date_input upsert_book_form_input">
+                    <p class="input_title">Date Finished Book</p>
+                    <input type="date" name="edit_date" id="edit_date" class="type_med">
+
+                </div>
+
+                <!-- input for notes for book-->
+                <div class="notes_input upsert_book_form_input">
+                    <p class="input_title">Notes on Book</p>
+                    <textarea name="edit_book_notes" class="upsert_book_notes type_body" placeholder="Notes on Book" id="edit_book_notes"></textarea>
+                </div>
+
+                <!-- submit button -->
+                <button class="upsert_btn type_med" type="submit">Save Changes</button>
+
+            </form>  
+
+            <!-- delete button -->
+            <form class="upsert_delete_form" action="/delete" method="post">
+                <!-- element to store the book key to be deleted-->
+                <textarea name="delete_key_value" id="delete_book_key_value" class="hidden_book_info"></textarea>
+                
+                <button class="upsert_btn type_med" name="edit_delete_book" id="edit_delete_book_btn"  type="submit">Remove Book</button>
+            </form>
+
+            <!-- close button-->
+            <button  class="upsert_btn type_med" id="edit_book_close" type="button" formnovalidate>Close</button>
+        </div>
+    </div>
+
+    <!-- slide container -->
+    <div id="hero_slide_container">
+       
+        <% for(let i=0;i<hero_books_amt; i++){ %> 
+            <div class="hero_ele hero_ele_<%=i%>" id="book_id_<%=hero_books[i].id  %>">
+                <img src="https://covers.openlibrary.org/b/OLID/<%=hero_books[i].key_value %>-L.jpg" />
+            </div>
+        <% }; %>
+        
+            <button class="hero_details_btn hero_details_btn_hide"><p class="type_med">Details</p></button>
+
+
+        <!-- book details -->    
+        <div class="hero_ele_details hero_ele_details_close">
+
+            <% book_collect.forEach(book =>{ %>
+            <div class="book_details book_details_hide" id="book_details_<%= book.id %>">
+                <p class="loaded_book_info_hide loaded_book_keys" id="loaded_book_key_<%=book.id%>"><%= book.key_value %></p>
+                <div class="book_details_section book_details_info">
+                    <div class="book_info">
+                        <p class="type_med" id="loaded_book_title_<%=book.id%>"><%=book.title%></p>
+                        <p class="type_med" id="loaded_book_author_<%=book.id%>"><%=book.author%></p>
+                    </div>
+                    <div class="book_status">
+                        <p class="loaded_book_info_hide" id="loaded_book_status_<%=book.id%>"><%= book.category %></p>
+                        <p class="type_med">
+                            <% if(book.category === "completed"){ %>
+                                Completed
+                            <% } else if(book.category === "current"){ %>
+                                Currently reading
+                            <% }else if(book.category === "future"){ %>
+                                Want to Read
+                            <% }; %>
+                        </p>
+                    </div>
+                </div>
+                <div class="book_details_section book_details_notes">
+                    <p class="type_med">Notes on book</p>
+                    <pre class="book_notes type_body" id="loaded_book_notes_<%=book.id%>"> <%= book.notes %> </pre>   
+                </div>
+                <div class="book_details_section book_details_rating">
+                    <p class="type_med">My <br>Rating: </p>
+                    <p class="book_rating" id="loaded_book_rating_<%=book.id%>"> <%= book.rating %>/5 </p>    
+                </div>
+                <div class="book_details_section book_details_date">
+                    <p class="book_date type_med">Completed on: 
+                        <span id="loaded_book_date_<%=book.id%>">
+                            <% if (book.date_complete !== null){ %>
+                                <%= book.date_complete.toLocaleDateString()%>
+                            <% }; %>
+                    </span> </p>  
+                </div>
+            </div>
+
+            <%}); %>  
+            <button class="edit_book_btn details_btns details_btn_hide type_med"> Edit </button>
+
+            <button class="close_details_btn details_btns details_btn_hide type_med"> Close </button>
+        </div>
+
+        <!--slide buttons -->
+        <div class="hero_slide_btns">
+            <button class="hero_slide_btn" id="hero_slide_btn_left">
+                <p>🢠</p>
+            </button>
+            <button class="hero_slide_btn" id="hero_slide_btn_right">
+                <p>🢡</p>
+            </button>
+        </div>
+    </div>
+
+    <!-- library buttons -->
+    <div id="library_btns">
+        <button class="library_btn completed_btn">
+            <p class="type_med">Completed books</p>
+        </button>
+        <button class="library_btn current_btn">
+            <p class="type_med">Current books</p>
+        </button>
+        <button class="library_btn future_btn">
+            <p class="type_med">Future books</p>
+        </button>
+    </div>
+
+</main>
+
+<!-- libraries container -->
+<section class="libraries_container">
+    <!-- completed books -->
+    <div id="library_completed" class="library_container">
+            <% for(let i=0;i<completed_books_collect.length; i++){ %> 
+                <div class="library_ele" id="book_id_<%=completed_books_collect[i].id%>">
+                    <img src="https://covers.openlibrary.org/b/OLID/<%=completed_books_collect[i].key_value %>-M.jpg" />
+                </div>
+            <% }; %>  
+        </div>
+    </div>
+    <!-- current books -->
+    <div id="library_current" class="library_container">
+            <% for(let i=0;i<current_books_collect.length; i++){ %> 
+                <div class="library_ele" id="book_id_<%=current_books_collect[i].id%>">
+                    <img src="https://covers.openlibrary.org/b/OLID/<%=current_books_collect[i].key_value %>-M.jpg" />
+                </div>    
+            <% }; %> 
+
+    </div>
+    <!-- future books -->
+    <div id="library_future" class="library_container">
+            <% for(let i=0;i<future_books_collect.length; i++){ %> 
+                <div class="library_ele" id="book_id_<%=future_books_collect[i].id%>">
+                    <img src="https://covers.openlibrary.org/b/OLID/<%=future_books_collect[i].key_value %>-M.jpg" />
+                </div>    
+            <% }; %> 
+    </div>
+</section>   
+
+<%- include('partials/footer.ejs') %>
+
+<!-- External js link for DOM functionality-->
+<script src="./scripts/dom_scripts.js" charset="utf-8"></script>
