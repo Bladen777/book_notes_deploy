@@ -211,10 +211,19 @@ p{
             border-color: var(--dk_brown);
             
         }
+
         .upsert_book_stable_container{
             min-width: 500px;
             display: flex;
             flex-direction: column;
+        }
+
+        @media  screen and (max-width:450px) {
+            .upsert_book_stable_container{
+                width: 100%;
+                min-width: 250px;
+                max-width: 450px;
+            }
         }
 
         .upsert_book_container_hide{
@@ -232,6 +241,12 @@ p{
         
         .upsert_book_info_container img{
             margin:50px auto;
+        }
+
+        @media  screen and (max-width:450px) {
+            .upsert_book_info_container img{
+                width: 100%;
+            }
         }
 
         .upsert_book_info{
