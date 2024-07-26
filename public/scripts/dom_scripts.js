@@ -426,6 +426,7 @@ function hero_btn_clicked(adjust){
             };
             
             console.log("right click","\n",);
+            
        
         } else  if (adjust === 1){
             //left click
@@ -474,6 +475,7 @@ function hero_btn_clicked(adjust){
             };
         
             console.log("left click","\n",);
+            
 
         };
         console.log("ele_change value:", ele_change, "\n",)
@@ -489,6 +491,8 @@ function hero_btn_clicked(adjust){
 
         
     };
+
+    center_ele_track(adjust)
 
     book_details_remove()
 
@@ -623,6 +627,7 @@ async function hero_books_rearrange(target_book_id){
                 break;
             };
           
+            
         
         console.log("book: ", target_book_id, "is already in hero section");
 
@@ -639,6 +644,9 @@ async function hero_books_rearrange(target_book_id){
 
             console.log("book: ", target_book_id, "is not in hero section");
         };
+        const center_ele = document.getElementsByClassName("hero_ele_0")[0];
+
+        console.log("current center element: ", center_ele);
         hero_details_click(0)
 
     console.log ("\n","\n","FUNCTION FINISHED: hero_books_rearrange", "\n", "\n");
@@ -700,14 +708,11 @@ book_details_show()
     details_edit_btn.addEventListener("click",edit_book_clicked);
     details_close_btn.addEventListener("click",() =>{hero_details_click(1)});
 
-    //right_btn & left_btn are defined in hero slide buttons section
-    right_btn.addEventListener("click",()=>{center_ele_track(0)});
-    left_btn.addEventListener("click",()=>{center_ele_track(1)});
-
 
     //close on hero slide arrow click
     function center_ele_track(adjust){
         console.log ("\n","\n","FUNCTION: center_ele_track", "\n", "\n");
+        let center_ele = document.getElementsByClassName("hero_ele_0")[0];
         console.log("current center element: ", center_ele);
 
         let hero_eles = document.getElementsByClassName("hero_ele");
@@ -842,6 +847,10 @@ book_details_show()
     }
    
    
+
+
+
+
 
 
 
