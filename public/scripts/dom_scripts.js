@@ -169,6 +169,7 @@
                 
             } catch (err){
                 console.log(err);
+                window.alert("unfortunatly Open Library server appears to be down")
             }
         }  
         // add book buttons
