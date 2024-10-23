@@ -401,6 +401,11 @@ p{
 
         }
        }
+/* the no books message */
+    #no_books_msg{
+        max-width: 60vw;
+        margin: auto;
+    }     
 
 /*hero details btn styling */
 
