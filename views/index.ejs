@@ -159,6 +159,10 @@
 
     <!-- slide container -->
     <div id="hero_slide_container">
+
+        <% if (hero_books_amt === 0){console.log("NO BOOKs") %>
+            <h1 id="no_books_msg"> There aren't any books yet, search for a book above.</h1>
+        <%};%>
        
         <% for(let i=0;i<hero_books_amt; i++){ %> 
             <div class="hero_ele hero_ele_<%=i%>" id="book_id_<%=hero_books[i].id  %>">
